@@ -1,0 +1,82 @@
+# =============================================================================
+# Komunitas AKI Motor 95 — Monorepo .gitignore
+# Cakupan: backend/ (Laravel 12) + frontend/ (React + Vite)
+# Prinsip: hanya abaikan dependency, build output, cache, log, environment,
+# dan file IDE/OS. Source code TIDAK PERNAH di-ignore.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# Diinstal ulang via `composer install` / `npm install`, tidak perlu di-commit.
+# -----------------------------------------------------------------------------
+/backend/vendor
+/frontend/node_modules
+
+# -----------------------------------------------------------------------------
+# Environment files
+# Berisi kredensial (DB, API key, dsb). Commit hanya file .env.example.
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Build output
+# Hasil kompilasi frontend (Vite) dan asset publik Laravel yang di-build.
+# -----------------------------------------------------------------------------
+/frontend/dist
+/frontend/dist-ssr
+/backend/public/build
+/backend/public/hot
+
+# -----------------------------------------------------------------------------
+# Laravel storage & cache
+# Symlink public/storage dibuat ulang via `php artisan storage:link`.
+# Struktur folder storage/framework dipertahankan lewat .gitignore bawaan
+# Laravel di masing-masing subfolder (jangan dihapus).
+# -----------------------------------------------------------------------------
+/backend/public/storage
+/backend/storage/*.key
+/backend/storage/pail
+/backend/bootstrap/cache/*.php
+/backend/.phpunit.result.cache
+/backend/.phpunit.cache
+/backend/auth.json
+/backend/Homestead.json
+/backend/Homestead.yaml
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# -----------------------------------------------------------------------------
+# Editor / IDE
+# -----------------------------------------------------------------------------
+/.vscode
+/.idea
+/.fleet
+/.nova
+/.zed
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# -----------------------------------------------------------------------------
+# OS files
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# Local overrides
+# File eksperimen lokal yang tidak boleh ikut ter-commit.
+# -----------------------------------------------------------------------------
+*.local
