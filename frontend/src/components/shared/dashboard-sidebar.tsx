@@ -13,10 +13,12 @@ import {
   GalleryHorizontalEnd,
   UserCog,
   Settings,
+  LogOut,
 } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -26,6 +28,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { useAuthStore } from '@/stores/auth-store'
+import { useHandleLogout } from '@/api/auth'
 
 const MENU = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'pengurus'] },
@@ -46,6 +49,7 @@ const MENU = [
 export function DashboardSidebar() {
   const location = useLocation()
   const role = useAuthStore((state) => state.user?.role)
+  const { handleLogout, isPending } = useHandleLogout()
 
   return (
     <Sidebar collapsible="icon">
@@ -80,6 +84,21 @@ export function DashboardSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              tooltip="Logout"
+              disabled={isPending}
+              onClick={handleLogout}
+              className="text-destructive hover:bg-destructive/10 hover:text-destructive"
+            >
+              <LogOut />
+              <span>{isPending ? 'Logging out...' : 'Logout'}</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   )
 }
