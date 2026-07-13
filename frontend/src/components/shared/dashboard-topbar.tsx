@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { LogOut, User as UserIcon } from 'lucide-react'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
@@ -6,6 +5,7 @@ import { ThemeToggle } from '@/components/shared/theme-toggle'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -13,17 +13,11 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { useAuthStore } from '@/stores/auth-store'
-import { useLogout } from '@/api/auth'
+import { useHandleLogout } from '@/api/auth'
 
 export function DashboardTopbar() {
   const user = useAuthStore((state) => state.user)
-  const logout = useLogout()
-  const navigate = useNavigate()
-
-  async function handleLogout() {
-    await logout.mutateAsync()
-    navigate('/login', { replace: true })
-  }
+  const { handleLogout } = useHandleLogout()
 
   return (
     <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border/60 px-4">
@@ -43,23 +37,27 @@ export function DashboardTopbar() {
           }
         />
         <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuLabel>
-            <p className="text-sm font-medium">{user?.name}</p>
-            <p className="text-xs font-normal text-muted-foreground capitalize">{user?.role}</p>
-          </DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>
+              <p className="text-sm font-medium">{user?.name}</p>
+              <p className="text-xs font-normal text-muted-foreground capitalize">{user?.role}</p>
+            </DropdownMenuLabel>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem
-            render={
-              <a href="/">
-                <UserIcon className="size-4" />
-                Lihat Website
-              </a>
-            }
-          />
-          <DropdownMenuItem onClick={handleLogout} variant="destructive">
-            <LogOut className="size-4" />
-            Logout
-          </DropdownMenuItem>
+          <DropdownMenuGroup>
+            <DropdownMenuItem
+              render={
+                <a href="/">
+                  <UserIcon className="size-4" />
+                  Lihat Website
+                </a>
+              }
+            />
+            <DropdownMenuItem onClick={handleLogout} variant="destructive">
+              <LogOut className="size-4" />
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>

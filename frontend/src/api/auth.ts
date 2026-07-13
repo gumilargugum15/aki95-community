@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom'
 import { api } from '@/lib/axios'
 import { useAuthStore } from '@/stores/auth-store'
 import type { ApiResource, User } from '@/types'
@@ -34,6 +35,22 @@ export function useLogout() {
     },
     onSettled: () => clear(),
   })
+}
+
+/**
+ * Shared logout flow: calls the API, clears local auth state (already
+ * handled by useLogout's onSettled), then redirects to /login.
+ */
+export function useHandleLogout() {
+  const logout = useLogout()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await logout.mutateAsync().catch(() => {})
+    navigate('/login', { replace: true })
+  }
+
+  return { handleLogout, isPending: logout.isPending }
 }
 
 export async function fetchCurrentUser() {
