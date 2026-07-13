@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Bike, Menu, Search, X } from 'lucide-react'
+import { Menu, Search, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { useAuthStore } from '@/stores/auth-store'
@@ -27,9 +27,7 @@ export function PublicNavbar() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-primary text-primary">
-            <Bike className="size-5" />
-          </span>
+          <img src="/logo.png" alt="AKI Motor 95" className="size-10 shrink-0 rounded-full object-contain" />
           <span className="leading-tight">
             <span className="block text-base font-extrabold tracking-tight uppercase">
               AKI Motor <span className="text-primary">95</span>
