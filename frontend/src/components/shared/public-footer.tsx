@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Bike, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -46,9 +46,7 @@ export function PublicFooter() {
       <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full border-2 border-primary text-primary">
-              <Bike className="size-4" />
-            </span>
+            <img src="/logo.png" alt="AKI Motor 95" className="size-9 shrink-0 rounded-full object-contain" />
             <span className="leading-tight">
               <span className="block text-sm font-extrabold tracking-tight uppercase">
                 {settings?.site_name ?? 'AKI Motor 95'}

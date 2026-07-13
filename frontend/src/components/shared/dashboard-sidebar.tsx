@@ -55,9 +55,7 @@ export function DashboardSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         <Link to="/dashboard" className="flex items-center gap-2 px-2 py-1.5 font-semibold tracking-tight">
-          <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary text-sm text-primary-foreground">
-            95
-          </span>
+          <img src="/logo.png" alt="AKI Motor 95" className="size-7 shrink-0 rounded-lg object-contain" />
           <span className="truncate group-data-[collapsible=icon]:hidden">AKI Motor 95</span>
         </Link>
       </SidebarHeader>
