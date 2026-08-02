@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { LoadingSpinner } from '@/components/shared/loading-spinner'
 import { ActivityCard } from '@/components/shared/activity-card'
+import { PartnerProjectsSection } from '@/components/shared/partner-projects-section'
 import {
   useBanners,
   useBaksosList,
@@ -237,6 +238,9 @@ export function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Project & Layanan Kami */}
+      <PartnerProjectsSection />
 
       {/* CTA banner */}
       <section className="relative overflow-hidden border-t border-border bg-gradient-to-b from-primary/15 via-background to-background py-24 text-center">

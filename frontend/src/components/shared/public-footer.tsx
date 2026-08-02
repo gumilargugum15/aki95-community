@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from '@/components/shared/social-icons'
 import { useSiteSettings, submitContactMessage } from '@/api/public'
+import { PARTNER_PROJECTS } from '@/data/partner-projects'
 
 const NAV_LINKS = [
   { to: '/tentang-kami', label: 'Tentang Kami' },
@@ -43,7 +44,7 @@ export function PublicFooter() {
 
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="AKI Motor 95" className="size-9 shrink-0 rounded-full object-contain" />
@@ -135,6 +136,26 @@ export function PublicFooter() {
               <Send className="size-4" />
             </Button>
           </form>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-bold tracking-widest text-foreground uppercase">Project Lainnya</h3>
+          <ul className="mt-4 space-y-2.5">
+            {PARTNER_PROJECTS.map((project) => (
+              <li key={project.id}>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Kunjungi ${project.name}`}
+                  aria-label={`Kunjungi ${project.name}, membuka di tab baru`}
+                  className="text-sm text-muted-foreground hover:text-primary"
+                >
+                  {project.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
