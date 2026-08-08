@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Store } from 'lucide-react'
+import { Heart, Store } from 'lucide-react'
 
 export interface PartnerProject {
   id: string
@@ -32,16 +32,16 @@ export const PARTNER_PROJECTS: PartnerProject[] = [
     buttonText: 'Lihat Demo',
     icon: Store,
   },
-  // {
-  //   id: 'undangakoe',
-  //   name: 'UndangAkoe',
-  //   category: 'Undangan Digital',
-  //   description:
-  //     'Platform pembuatan undangan digital modern dengan desain elegan, RSVP, galeri foto, countdown, lokasi acara, dan tema yang dapat disesuaikan.',
-  //   url: 'https://pos.kagoemdev.my.id',
-  //   buttonText: 'Lihat Demo',
-  //   icon: Heart,
-  // },
+  {
+    id: 'undangakoe',
+    name: 'UndangAkoe',
+    category: 'Undangan Digital',
+    description:
+      'Platform pembuatan undangan digital modern dengan desain elegan, RSVP, galeri foto, countdown, lokasi acara, dan tema yang dapat disesuaikan.',
+    url: 'https://undangakoe.my.id',
+    buttonText: 'Lihat Demo',
+    icon: Heart,
+  },
   // {
   //   id: 'kagoem-digital',
   //   name: 'Kagoem Digital',
