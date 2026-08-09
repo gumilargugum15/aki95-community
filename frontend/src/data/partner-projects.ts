@@ -29,7 +29,7 @@ export const PARTNER_PROJECTS: PartnerProject[] = [
       password: 'password',
     },
     url: 'https://pos.kagoemdev.my.id',
-    buttonText: 'Lihat Demo',
+    buttonText: 'Kunjungi Website',
     icon: Store,
   },
   {
@@ -39,7 +39,7 @@ export const PARTNER_PROJECTS: PartnerProject[] = [
     description:
       'Platform pembuatan undangan digital modern dengan desain elegan, RSVP, galeri foto, countdown, lokasi acara, dan tema yang dapat disesuaikan.',
     url: 'https://undangakoe.my.id',
-    buttonText: 'Lihat Demo',
+    buttonText: 'Kunjungi Website',
     icon: Heart,
   },
   // {
